@@ -91,28 +91,31 @@ class HLTV extends EventEmmiter{
                         // function to check if file exists
                         const moveFile = () =>{
                             
-                            fs.rename(path.join(config.cwd + `/cstrike/${demo}`), path.join(config.cwd + `/cstrike/${this.server_state[srwId].dirName}/${demo}`), (err) =>{
-                                
-                                if (err && err.code === 'EBUSY'){
+                            if(demoInfo[2] === this.server_state[srwId].dirName){
 
-                                    //do nothing till next loop
+                                fs.rename(path.join(config.cwd + `/cstrike/${demo}`), path.join(config.cwd + `/cstrike/${this.server_state[srwId].dirName}/${demo}`), (err) =>{
+                                    
+                                    if (err && err.code === 'EBUSY'){
 
-                                } else if (err && err.code === 'ENOENT'){
+                                        //do nothing till next loop
 
-                                    clearInterval(checkInterval);
+                                    } else if (err && err.code === 'ENOENT'){
 
-                                } else {
+                                        clearInterval(checkInterval);
 
-                                    // all good move file
-                                    fs.rename(path.join(config.cwd + `/cstrike/${demo}`), path.join(config.cwd + `/cstrike/${this.server_state[srwId].dirName}/${demo}`), (err) =>{
+                                    } else {
 
-                                        if(!err){
-                                            clearInterval(checkInterval);
-                                        }
+                                        // all good move file
+                                        fs.rename(path.join(config.cwd + `/cstrike/${demo}`), path.join(config.cwd + `/cstrike/${this.server_state[srwId].dirName}/${demo}`), (err) =>{
 
-                                    });
-                                }
-                            });
+                                            if(!err){
+                                                clearInterval(checkInterval);
+                                            }
+
+                                        });
+                                    }
+                                });
+                            }
                         } 
                         
                         // set interval possible busy demp state so repeat needed
@@ -150,7 +153,7 @@ class HLTV extends EventEmmiter{
         })
 
         // zipping done, transfer file to the public directory
-        this.on('zipDone', (zipDir, demoName) =>{
+        this.zip.on('zipDone', (zipDir, demoName) =>{
 
             // move zip when event emits
             const moveFile = () =>{
@@ -173,6 +176,8 @@ class HLTV extends EventEmmiter{
                             if(!err){
                                
                                 clearInterval(checkMoveInterval);
+
+                                this.emit('deleteDir', zipDir);
                             }
                         });
                     }
@@ -181,6 +186,16 @@ class HLTV extends EventEmmiter{
             
             const checkMoveInterval = setInterval(() => moveFile(), 1000);
 
+        });
+
+        this.on('deleteDir', (zipDir) =>{
+            fs.rmdir(zipDir , err =>{
+                if(!err){
+                    console.log('dir deleted');
+                }else{
+                    console.error(err, ' dir was not deleted');
+                }
+            })
         });
 
     }
