@@ -6,9 +6,23 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const zipperClass = require('./zipper');
+const mysql = require('mysql');
 
 const Zip = new zipperClass();
 
+const con = mysql.createConnection({
+  host: 'remotemysql.com',
+  user: '2HJgsf76j3',
+  password: '5IpUFNcTlu',
+  database: '2HJgsf76j3',
+});
+
+con.connect();
+
+con.query('SHOW TABLES', function(err, rows, fields) {
+    if (err) throw err;
+    console.log(rows[0].example); //Show 1
+});
 
 const RCON = require('./rcon');
 
