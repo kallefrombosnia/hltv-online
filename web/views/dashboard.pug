@@ -1,0 +1,62 @@
+extends layout
+
+block dashboard
+    .col-md-12
+        .card.push-top
+                h5.card-header List of live matches: 2
+                .card-body
+                    table.table
+                        thead
+                            tr
+                                th(scope='col') Match ID
+                                th(scope='col') Server IP
+                                th(scope='col') Mode
+                                th(scope='col') Status
+                                th(scope='col') Created at
+                        tbody
+                            tr
+                                th(scope='row') #11212d
+                                td 45.82.121.65:27000
+                                td 5v5
+                                td Live
+                                td 16:30 17.05.2020
+                            tr
+                                th(scope='row') #212121
+                                td 45.82.121.65:27001
+                                td 5v5
+                                td Live
+                                td 16:30 17.05.2020
+                            tr
+                                th(scope='row') #331313
+                                td 45.82.121.65:27002
+                                td 5v5
+                                td Live
+                                td 16:30 17.05.2020
+
+        .card.push-top
+            h5.card-header Our community:
+            .card-body
+                    table.table
+                            thead
+                                tr
+                                    th(scope='col') Type
+                                    th(scope='col') Server IP
+                                    th(scope='col') Mode
+                                    th(scope='col') Status
+                                    th(scope='col') Players
+                                    th(scope='col') Note
+                            tbody
+                                each server in srws
+                                    if server.show 
+                                        tr
+                                            th  
+                                                img.social-icons(src=`assets/images/${server.type}.png`)
+                                            td
+                                                a(href=`${server.type === 'cs' ? 'steam://connect/' + server.ip : server.type === 'ts3' ? 'ts3server://connect/' + server.ip : 'Unknown'}`)= server.ip
+                                            td=  'AM'
+                                            td= 'Online'
+                                            td= '12/12'
+                                            td= server.note
+
+
+            

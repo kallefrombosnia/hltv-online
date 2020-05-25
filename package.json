@@ -17,7 +17,6 @@
     "game-server-query": "^1.0.10",
     "gamedig": "^2.0.20",
     "mysql": "^2.18.1",
-    "ps-tree": "^1.2.0",
     "public-ip": "^4.0.1",
     "pug": "^2.0.4",
     "rcon": "^1.0.3",

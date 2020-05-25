@@ -1,0 +1,13 @@
+extends layout
+
+block 404 
+
+    .col-md-12
+        .card.push-top
+                    h5.card-header 404 - Not found
+                    .card-body
+                        h3 Sorry, but this page does not exists, are you looking for something else?
+
+                        a(href=ref ? ref : '/')
+                            button.btn.btn-primary.btn-orange.push-top.icon
+                                span.fas.fa-long-arrow-alt-left.icon.ic-right    Go back

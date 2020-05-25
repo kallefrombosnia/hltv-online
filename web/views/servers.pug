@@ -1,0 +1,35 @@
+extends layout
+
+block servers
+        .col-md-12
+
+            .card.push-top
+                    h5.card-header Info:
+                    .card-body
+                        h6 Enjoy playing on our dedicated game servers. All servers are hosted on powerfull hardware where they run on smooth 1000 FPS without drops. All servers are DDoS protected.
+                        h6 TS3 server with 512 slots lets you talk with gamers like you, play favorite games together and listen to some good music hits. 
+                        h6 We are waiting for you.
+            .card.push-top
+                h5.card-header All servers:
+                .card-body
+                        table.table
+                                thead
+                                    tr
+                                        th(scope='col') Type
+                                        th(scope='col') Server IP
+                                        th(scope='col') Mode
+                                        th(scope='col') Status
+                                        th(scope='col') Players
+                                        th(scope='col') Note
+                                tbody
+                                    each server in srws
+                                        if server.show 
+                                            tr
+                                                th  
+                                                    img.social-icons(src=`assets/images/${server.type}.png`)
+                                                td
+                                                    a(href=`${server.type === 'cs' ? 'steam://connect/' + server.ip : server.type === 'ts3' ? 'ts3server://connect/' + server.ip : 'Unknown'}`)= server.ip
+                                                td=  'AM'
+                                                td= 'Online'
+                                                td= '12/12'
+                                                td= server.note

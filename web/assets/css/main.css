@@ -1,0 +1,128 @@
+
+.fab{
+    padding-right:20px;
+}
+
+ul li a{
+    margin-right: 20px;
+}
+
+.push-top {
+    margin-top: 40px;
+}
+
+.head-default {
+    background-color: #f8f9fa;
+}
+
+.list-group-item {
+    padding: .25rem 1.25rem; 
+}
+
+.button-relation {
+    margin: 2px;
+}
+
+.modal-header{
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+.fa-check{
+    color: green;
+    padding: 5px;
+}
+
+.fa-exclamation-triangle{
+    color:red;
+    padding: 5px;
+}
+
+.icon {
+    padding-left: 5px;
+}
+
+.ic-right {
+    padding-right: 5px;
+}
+
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../images/background.jpg');
+}
+
+.navbar{
+    padding: 1rem 1rem 1rem !important;
+    font-size: 18px !important;
+}
+
+.nav-gray{
+    background-color: #222222;
+}
+
+.nav-link{
+    color: #f0f0f0 !important;
+}
+
+.naslov{
+    font-size: 50px;
+    font-weight: 700;
+    margin: 0;
+    color:#ff5f00;
+}
+
+.naslov2{
+    font-size: 50px;
+    font-weight: 700;
+    margin: 0;
+    color:#FFFFFF;
+}
+
+.brands{
+    list-style: none;
+    margin:0;
+}
+
+.brands-linija > li{
+    display:inline-block;
+    margin-right:5px;
+}
+
+.brands-krug{
+    border-radius:50%;
+}
+
+.brands-krug > li > a {
+    color: #1a1a1a;
+    border: 0;
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.social-icons{
+    width: 30px;
+}
+.card{
+    border: none !important;
+}
+
+.card-header{
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+.card-body{
+    background-color: #ececec !important;
+}
+
+.btn-orange{
+    background-color: #ff5f00 !important;
+    border: none;
+}
+
+.media-image{
+    height: 64px;
+    width: 64px;
+}
